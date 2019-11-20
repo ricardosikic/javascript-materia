@@ -52,4 +52,38 @@ suma = (a, b) => {
 
 suma(4, 4);
 
-// faltan los return y invocar funciones dentro de otras.
+// podemos utilizar ahora una funcion que esta invocada en otra funcion, ejemplo:
+
+resta = (a, b) => {
+    let resultado = a - b;
+    
+    //llamo a la funcion 
+    muestraResultado(resultado);
+}
+
+
+muestraResultado = (resultado) => {
+    console.log(`el resulta de la funcion es ${resultado}`)
+}
+
+resta(3, 1);
+
+// Lo que ocurre aca es lo siguiente, defino una funcion que toma 2 argumentos y esta a su vez llama a otra funcion y le pasa como argumento
+// el resultado de la funcion padre, por lo que al ser invicada en la funcion padre(resta) al momento de invocar a la funcion padre (resta)
+// aparecera el resulta deseado.
+
+
+calculoMasIva = (precio, porcentaje) => {
+    total = precio * porcentaje;
+    total_redondeado = Math.round(total)
+    boletaPrecio(total_redondeado);
+}
+
+boletaPrecio = (total_compra) => {
+    console.log(`El valor con iva de tu compra es ${total_compra}`);
+}
+
+calculoMasIva(40, 1.19);
+
+// en este ejemplo invoque a una variable para que me mostrara el valor redondeado del precio con iva
+// esta pasa como argumento.
